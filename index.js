@@ -41,4 +41,10 @@ console.log("A szia és a mobvadász kommand betöltve!")
     }
 
 })
-bot.login(tokenfile.token)
+
+if(!process.env.TOKEN) {
+    console.log("TOKEN env változó hiányzik!")
+    process.exit(1)
+}
+
+bot.login(process.env.TOKEN)
