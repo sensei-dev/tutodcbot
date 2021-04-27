@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  tutodcbot:
+    #build: .
+    #image: tutodcbot:latest
+    image: docker.pkg.github.com/sensei-dev/tutodcbot/tutodcbot:latest
+    restart: always
+    networks:
+      - tutodcbot-net
+    environments:
+      - TOKEN=<valami>
+    volumes:
+      - ${PWD}/botconfig.json:/usr/src/tutodcbot/botconfig.json:ro
+    
+ networks:
+   tutodcbot-net:
